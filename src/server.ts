@@ -5,7 +5,7 @@ dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import { initializeDatabase } from './helpers/db';
-import userRouter from './users/user.controller';
+import userRouter from './reservations/reserve.controller';
 import { errorHandler } from './middleware/error-handler';
 
 const app = express();
