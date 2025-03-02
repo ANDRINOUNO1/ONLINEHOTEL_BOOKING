@@ -27,7 +27,7 @@ export class CustomerService {
 
     async update(id: number, data: Partial<Customer>) {
         const customer = await this.getById(id);
-        if (!customer) throw new Error('Customer not found');
+        if (!customer) throw new Error('Customer cant be found');
 
         Object.assign(customer, data);
         return this.customerRepository.save(customer);
@@ -35,7 +35,7 @@ export class CustomerService {
 
     async delete(id: number) {
         const customer = await this.getById(id);
-        if (!customer) throw new Error('Customer not found');
+        if (!customer) throw new Error('Customer cant be found');
 
         return this.customerRepository.remove(customer);
     }
@@ -59,7 +59,7 @@ export class RoomService {
 
     async update(id: number, data: Partial<Room>) {
         const room = await this.getById(id);
-        if (!room) throw new Error('Room not found');
+        if (!room) throw new Error('Room cant be found');
 
         Object.assign(room, data);
         return this.roomRepository.save(room);
@@ -67,7 +67,7 @@ export class RoomService {
 
     async delete(id: number) {
         const room = await this.getById(id);
-        if (!room) throw new Error('Room not found');
+        if (!room) throw new Error('Room cant be found');
 
         return this.roomRepository.remove(room);
     }
@@ -91,7 +91,7 @@ export class ReservationService {
 
     async update(id: number, data: Partial<Reservation>) {
         const reservation = await this.getById(id);
-        if (!reservation) throw new Error('Reservation not found');
+        if (!reservation) throw new Error('Reservation cant be found');
 
         Object.assign(reservation, data);
         return this.reservationRepository.save(reservation);
@@ -99,7 +99,7 @@ export class ReservationService {
 
     async delete(id: number) {
         const reservation = await this.getById(id);
-        if (!reservation) throw new Error('Reservation not found');
+        if (!reservation) throw new Error('Reservation cant be found');
 
         return this.reservationRepository.remove(reservation);
     }
