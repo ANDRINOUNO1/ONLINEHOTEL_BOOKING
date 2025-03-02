@@ -2,11 +2,11 @@ import 'reflect-metadata';
 import dotenv from 'dotenv';
 import mysql from 'mysql2/promise';
 import { DataSource } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User, Customer, Room, Reservation } from '../users/user.entity';
 
 dotenv.config();
 
-const dbName = process.env.DB_NAME || 'node_mysql_crud_api';
+const dbName = process.env.DB_NAME || 'hotel_test';
 
 async function createDatabase() {
     try {
@@ -33,7 +33,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || '',
     database: dbName,
-    entities: [User],
+    entities: [User, Customer, Room, Reservation],
     synchronize: true,
     logging: true
 });
